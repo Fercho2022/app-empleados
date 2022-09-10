@@ -26,6 +26,7 @@ export class AppComponent {
 
   }
 
+
   cuadroNombre:string="";
   cuadroApellido:string="";
   cuadroCargo:string="";
