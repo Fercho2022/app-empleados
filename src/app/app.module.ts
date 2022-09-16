@@ -8,18 +8,41 @@ import { CaracteristicasEmpleadoCComponent } from './caracteristicas-empleado-c/
 
 import { ServicioEmpleadosService } from './servicio-empleados.service'
 import { EmpleadosService } from './empleados.service';
+import { HomeComponentComponent } from './home-component/home-component.component';
+import { ProyectosComponentComponent } from './proyectos-component/proyectos-component.component';
+import { QuienesComponentComponent } from './quienes-component/quienes-component.component';
+import { ContactoComponentComponent } from './contacto-component/contacto-component.component';
+import { RouterModule, Routes } from '@angular/router';
+
+// Para hacer routing es necesario definir una constante appRoutes del tipo arreglo donde se
+// cargan para cada ruta de aterrizaje el componente que se debe mostrar, y en el
+// decorador NgModule en imports: debe cargarse el RouterModule.forRoot(appRoutes), a su vez en la parte
+// superior
+const appRoutes:Routes=[
+
+  {path:'', component:HomeComponentComponent},
+  {path:'proyectos', component:ProyectosComponentComponent},
+  {path:'quienes', component:QuienesComponentComponent},
+  {path:'contacto', component:ContactoComponentComponent},
 
 
+
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     EmpleadoHijoCComponent,
-    CaracteristicasEmpleadoCComponent
+    CaracteristicasEmpleadoCComponent,
+    HomeComponentComponent,
+    ProyectosComponentComponent,
+    QuienesComponentComponent,
+    ContactoComponentComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes) //esto se debe agregar para routing
   ],
   providers: [ServicioEmpleadosService,
     EmpleadosService],
