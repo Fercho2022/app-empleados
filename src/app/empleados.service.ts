@@ -30,4 +30,20 @@ export class EmpleadosService {
 
 
   }
+
+  encontrarEmpleado(i:number){
+    return this.empleados[i];
+
+  }
+
+  actualizarEmpleado(i:number, empleado:Empleado){
+     let empleadoModificado=this.empleados[i];
+     empleadoModificado.nombre=empleado.nombre;
+     empleadoModificado.apellido=empleado.apellido;
+     empleadoModificado.cargo=empleado.cargo;
+     empleadoModificado.salario=empleado.salario;
+
+
+
+  }
 }
