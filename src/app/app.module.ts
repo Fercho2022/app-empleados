@@ -14,6 +14,10 @@ import { QuienesComponentComponent } from './quienes-component/quienes-component
 import { ContactoComponentComponent } from './contacto-component/contacto-component.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ActualizaComponentComponent } from './actualiza-component/actualiza-component.component';
+import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component';
+import { DataService } from './data.service';
+
+import { HttpClientModule } from '@angular/common/http'
 
 // Para hacer routing es necesario definir una constante appRoutes del tipo arreglo donde se
 // cargan para cada ruta de aterrizaje el componente que se debe mostrar, y en el
@@ -26,6 +30,8 @@ const appRoutes:Routes=[
   {path:'quienes', component:QuienesComponentComponent},
   {path:'contacto', component:ContactoComponentComponent},
   {path:'actualiza/:id', component:ActualizaComponentComponent},
+  {path:'**', component:ErrorPersonalizadoComponent},
+
 
 
 
@@ -46,10 +52,10 @@ const appRoutes:Routes=[
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes) //esto se debe agregar para routing
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
-  providers: [ServicioEmpleadosService,
-    EmpleadosService],
+  providers: [ServicioEmpleadosService, EmpleadosService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
