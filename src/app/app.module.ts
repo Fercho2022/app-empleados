@@ -17,7 +17,8 @@ import { ActualizaComponentComponent } from './actualiza-component/actualiza-com
 import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component';
 import { DataService } from './data.service';
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component'
 
 // Para hacer routing es necesario definir una constante appRoutes del tipo arreglo donde se
 // cargan para cada ruta de aterrizaje el componente que se debe mostrar, y en el
@@ -30,7 +31,9 @@ const appRoutes:Routes=[
   {path:'quienes', component:QuienesComponentComponent},
   {path:'contacto', component:ContactoComponentComponent},
   {path:'actualiza/:id', component:ActualizaComponentComponent},
+  {path:'login', component:LoginComponent},
   {path:'**', component:ErrorPersonalizadoComponent},
+
 
 
 
@@ -47,7 +50,8 @@ const appRoutes:Routes=[
     ProyectosComponentComponent,
     QuienesComponentComponent,
     ContactoComponentComponent,
-    ActualizaComponentComponent
+    ActualizaComponentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

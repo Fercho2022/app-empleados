@@ -47,6 +47,8 @@ export class EmpleadosService {
      empleadoModificado.cargo=empleado.cargo;
      empleadoModificado.salario=empleado.salario;
 
+     this.dataService.actualizarEmpleado(i, empleado);
+
 
 
   }
@@ -54,6 +56,12 @@ export class EmpleadosService {
   eliminarEmpleado(i:number){
 
     this.empleados.splice(i, 1);
+
+    this.dataService.eliminarEmpleado(i);
+
+    if (this.empleados!=null) this.dataService.guardarEmpleado(this.empleados);
+
+
   }
 
   obtenerEmpleados(){

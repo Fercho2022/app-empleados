@@ -16,7 +16,9 @@ export class ActualizaComponentComponent implements OnInit {
   cuadroApellido:string="";
   cuadroCargo:string="";
   cuadroSalario:number=0;
+
   empleados:Empleado[]=[];
+
   indice:number;
   accion:number;
 
