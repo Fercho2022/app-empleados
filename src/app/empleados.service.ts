@@ -60,4 +60,9 @@ export class EmpleadosService {
 
     return this.dataService.cargarEmpleados();
   }
+
+  setEmpleados(misEmpleados:Empleado[]){
+      this.empleados=misEmpleados;
+
+  }
 }

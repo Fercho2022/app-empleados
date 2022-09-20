@@ -32,6 +32,8 @@ export class HomeComponentComponent implements OnInit {
     this.empleadosService.obtenerEmpleados().subscribe(misEmpleados=>{
 
       console.log(misEmpleados);
+      this.empleados=Object.values(misEmpleados);
+      this.empleadosService.setEmpleados(this.empleados);
 
     });
   }
@@ -42,7 +44,6 @@ export class HomeComponentComponent implements OnInit {
     let miEmpleado=new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario)
     //this.miServicio.muestraMensaje("Nombre del empleado: " + miEmpleado.nombre);
     this.empleadosService.agregarEmpleadoServicio(miEmpleado);
-
 
 
 
