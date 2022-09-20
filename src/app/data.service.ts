@@ -11,6 +11,12 @@ export class DataService {
 
     }
 
+    cargarEmpleados(){
+
+      return this.httpClient.get('https://clientes-86274-default-rtdb.europe-west1.firebasedatabase.app/datos.json')
+
+    }
+
     guardarEmpleado(empleados:Empleado[]){
 
       this.httpClient.put('https://clientes-86274-default-rtdb.europe-west1.firebasedatabase.app/datos.json', empleados).subscribe(

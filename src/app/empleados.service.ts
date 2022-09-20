@@ -8,14 +8,15 @@ import { ServicioEmpleadosService } from './servicio-empleados.service';
 })
 export class EmpleadosService {
 
-  empleados:Empleado[]=[
+  /*empleados:Empleado[]=[
 
     new Empleado("Juan", "Diaz", "Presidente", 7500),
     new Empleado("Ana", "Martin", "Directora", 5500),
     new Empleado("Maria", "Fernandez", "Jefa sección", 3500),
     new Empleado("Laura", "Lopez", "Administrativo", 2500),
-  ];
+  ];*/
 
+  empleados:Empleado[]=[];
   constructor(private servicioVentanaEmergente:ServicioEmpleadosService, private dataService:DataService) {
 
 
@@ -53,5 +54,10 @@ export class EmpleadosService {
   eliminarEmpleado(i:number){
 
     this.empleados.splice(i, 1);
+  }
+
+  obtenerEmpleados(){
+
+    return this.dataService.cargarEmpleados();
   }
 }
