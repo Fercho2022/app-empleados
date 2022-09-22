@@ -81,6 +81,7 @@ export class ActualizaComponentComponent implements OnInit {
 
     this.empleadosService.actualizarEmpleado(this.indice, miEmpleado);
     this.ruta.navigate(['']);
+
   }else{
 
     this.empleadosService.eliminarEmpleado(this.indice);

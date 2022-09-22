@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable({
@@ -13,7 +14,7 @@ export class LoginService {
   token:string;
 
 
-  constructor(private router:Router) {
+  constructor(private router:Router, private cookie:CookieService) {
 
 
    }
@@ -29,6 +30,7 @@ export class LoginService {
               token=>{
 
                   this.token=token;
+                  this.cookie.set("token", this.token) // se setea el nombre de la cookie "token", pasandole el valor del token a esa cookie llamada "token"
                   this.router.navigate(['/']);
 
 
@@ -42,12 +44,12 @@ export class LoginService {
 
   getIdToken(){
 
-    return this.token;
+    return this.cookie.get("token");
   }
 
   estaLogueado(){
 
-    return this.token;
+    return this.cookie.get("token");
   }
 
   logout(){
@@ -55,7 +57,9 @@ export class LoginService {
     firebase.auth().signOut().then(()=>{
 
       this.token="";
+      this.cookie.set("token", this.token);
       this.router.navigate(['/']);
+      window.location.reload();
     })
   }
 

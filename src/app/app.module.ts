@@ -20,6 +20,7 @@ import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component'
 import { LoginService } from './login.service';
+import { CookieService } from 'ngx-cookie-service';
 
 // Para hacer routing es necesario definir una constante appRoutes del tipo arreglo donde se
 // cargan para cada ruta de aterrizaje el componente que se debe mostrar, y en el
@@ -60,7 +61,7 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [ServicioEmpleadosService, EmpleadosService, DataService, LoginService],
+  providers: [ServicioEmpleadosService, EmpleadosService, DataService, LoginService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
