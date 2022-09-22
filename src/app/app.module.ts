@@ -19,6 +19,7 @@ import { DataService } from './data.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component'
+import { LoginService } from './login.service';
 
 // Para hacer routing es necesario definir una constante appRoutes del tipo arreglo donde se
 // cargan para cada ruta de aterrizaje el componente que se debe mostrar, y en el
@@ -59,7 +60,7 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [ServicioEmpleadosService, EmpleadosService, DataService],
+  providers: [ServicioEmpleadosService, EmpleadosService, DataService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
